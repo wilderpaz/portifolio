@@ -3,22 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wilder Paz | Portfólio</title>
+    <title>Wilder Paz | Desenvolvedor & Professor de Informática</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos personalizados e para animações */
+        /* Paleta de Cores Inspirada nas Fotos */
+        :root {
+            --dark-blue: #0f172a; /* Azul escuro, quase preto, do fundo tech */
+            --main-blue: #2563eb; /* Azul principal vibrante do perfil */
+            --light-blue: #60a5fa; /* Azul claro para hover e detalhes */
+            --bg-light: #f1f5f9;   /* Cinza muito claro para seções de conteúdo */
+            --text-dark: #1e293b;  /* Cinza escuro para texto */
+            --text-light: #e2e8f0; /* Cinza claro para texto em fundos escuros */
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f2f5; /* Um cinza claro suave para o fundo */
+            background-color: var(--bg-light);
+            color: var(--text-dark);
         }
         
-        /* Animações de entrada com Intersection Observer */
+        /* Efeito de fundo na seção de início */
+        #inicio {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('fundo_perfil.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
         .animate-on-scroll {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(30px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
@@ -27,9 +43,8 @@
             transform: translateY(0);
         }
         
-        /* Estilo para o menu de navegação ativo */
         .nav-link-active {
-            color: #3b82f6; /* Azul para o link ativo */
+            color: var(--main-blue);
             position: relative;
         }
 
@@ -40,12 +55,29 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background-color: #3b82f6;
+            background-color: var(--main-blue);
         }
 
-        /* Efeito de hover sutil nos links de navegação */
         .nav-link:hover {
-            color: #60a5fa; /* Azul mais claro no hover */
+            color: var(--light-blue);
+        }
+        
+        /* Estilo para timeline de formação */
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid var(--light-blue);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--main-blue);
+            border: 2px solid var(--bg-light);
         }
 
     </style>
@@ -53,25 +85,27 @@
 <body class="text-gray-800">
 
     <!-- CABEÇALHO E NAVEGAÇÃO -->
-    <header id="header" class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-md transition-all duration-300">
+    <header id="header" class="bg-white/90 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-md transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#inicio" class="text-2xl font-bold text-gray-800">Wilder Paz</a>
-            <nav class="hidden md:flex space-x-8">
+            <a href="#inicio" class="text-2xl font-bold text-[var(--dark-blue)]">Wilder Paz</a>
+            <nav class="hidden md:flex space-x-6">
                 <a href="#inicio" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Início</a>
-                <a href="#sobre" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Sobre Mim</a>
+                <a href="#sobre" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Sobre</a>
+                <a href="#atuacao" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Áreas de Atuação</a>
+                <a href="#formacao" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Formação</a>
                 <a href="#projetos" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Projetos</a>
                 <a href="#habilidades" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Habilidades</a>
                 <a href="#contato" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Contato</a>
             </nav>
-            <!-- Menu mobile (ícone) -->
-            <button id="mobile-menu-button" class="md:hidden text-gray-800">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            <button id="mobile-menu-button" class="md:hidden text-[var(--dark-blue)]">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
-        <!-- Menu mobile (dropdown) -->
         <div id="mobile-menu" class="hidden md:hidden bg-white">
-            <a href="#inicio" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Início</a>
-            <a href="#sobre" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Sobre Mim</a>
+             <a href="#inicio" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Início</a>
+            <a href="#sobre" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Sobre</a>
+            <a href="#atuacao" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Áreas de Atuação</a>
+            <a href="#formacao" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Formação</a>
             <a href="#projetos" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Projetos</a>
             <a href="#habilidades" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Habilidades</a>
             <a href="#contato" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Contato</a>
@@ -80,12 +114,12 @@
 
     <main>
         <!-- SEÇÃO INÍCIO -->
-        <section id="inicio" class="min-h-screen flex items-center bg-white">
+        <section id="inicio" class="min-h-screen flex items-center text-white">
             <div class="container mx-auto px-6 text-center">
                 <div class="animate-on-scroll">
-                    <img src="WilderPaz_Professor_Informática.jpg" alt="Foto de Perfil de Wilder Paz" class="w-40 h-40 mx-auto rounded-full shadow-xl mb-6 object-cover">
+                    <img src="WilderPaz_perfil.jpg" alt="Foto de Perfil de Wilder Paz" class="w-40 h-40 mx-auto rounded-full shadow-2xl mb-6 object-cover border-4 border-white/50">
                     <h1 class="text-5xl md:text-7xl font-bold mb-2">Wilder Paz</h1>
-                    <p class="text-xl md:text-2xl text-blue-600 font-medium">Desenvolvedor Júnior</p>
+                    <p class="text-xl md:text-2xl text-[var(--light-blue)] font-medium">Desenvolvedor Júnior e Professor de Informática</p>
                 </div>
             </div>
         </section>
@@ -94,10 +128,91 @@
         <section id="sobre" class="py-20 md:py-32">
             <div class="container mx-auto px-6">
                 <div class="animate-on-scroll max-w-3xl mx-auto text-center">
-                    <h2 class="text-4xl font-bold mb-6">Sobre Mim</h2>
-                    <p class="text-lg text-gray-600 leading-relaxed">
-                        Formado em Sistemas de Informação com MBA em Gestão da TI, minha carreira é marcada pela transição estratégica da área de segurança pública para a tecnologia. Com experiência sólida em administração de sistemas, suporte e desenvolvimento web com PHP e Scriptcase, atuei na implementação e gestão de sistemas críticos. Minha trajetória como Guarda Civil Municipal e Sargento no Exército Brasileiro desenvolveu em mim disciplina, liderança e uma forte capacidade de resolução de problemas em ambientes dinâmicos. Atualmente, busco oportunidades como Desenvolvedor Júnior para aplicar meu conhecimento técnico e minha paixão por criar soluções eficientes.
+                    <h2 class="text-4xl font-bold mb-6 text-[var(--dark-blue)]">Sobre Mim</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                        Com uma carreira construída sobre a disciplina da segurança pública e a lógica da tecnologia, sou um profissional que une mundos. Bacharel em Sistemas de Informação e MBA em Gestão da TI, minha paixão por resolver problemas me levou ao desenvolvimento de software, enquanto minha vocação para compartilhar conhecimento me guia na área da educação. Busco ativamente oportunidades onde possa aplicar minhas habilidades técnicas em desenvolvimento e minha experiência pedagógica para criar soluções inovadoras e capacitar pessoas.
                     </p>
+                    <a href="Currículo Wilder Paz_2025.pdf" download="CV_Wilder_Paz.pdf" class="bg-[var(--main-blue)] hover:bg-[var(--light-blue)] text-white font-bold py-3 px-8 rounded-full text-lg transition-colors duration-300">
+                        Baixar meu CV
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO ÁREAS DE ATUAÇÃO -->
+        <section id="atuacao" class="py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="animate-on-scroll text-center mb-12">
+                    <h2 class="text-4xl font-bold text-[var(--dark-blue)]">Áreas de Atuação</h2>
+                    <p class="text-lg text-gray-600 mt-2">Minhas duas grandes paixões profissionais.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="animate-on-scroll bg-gray-50 rounded-lg shadow-lg p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-[var(--main-blue)]">Tecnologia da Informação</h3>
+                        <ul class="space-y-3 text-gray-600 list-disc list-inside">
+                            <li>Desenvolvimento web com foco em PHP e Scriptcase.</li>
+                            <li>Administração e modelagem de bancos de dados (MySQL, PostgreSQL).</li>
+                            <li>Análise de sistemas, levantamento de requisitos e suporte técnico.</li>
+                            <li>Experiência com sistemas ERP, financeiros e de gestão de pessoal.</li>
+                            <li>Conhecimentos em Python e metodologias ágeis (Kanban).</li>
+                        </ul>
+                    </div>
+                    <div class="animate-on-scroll bg-gray-50 rounded-lg shadow-lg p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-[var(--main-blue)]">Educação e Tutoria</h3>
+                         <ul class="space-y-3 text-gray-600 list-disc list-inside">
+                            <li>Licenciando em Formação Pedagógica em Informática.</li>
+                            <li>Experiência como Tutor On-line para cursos de nível superior.</li>
+                            <li>Acompanhamento de alunos e mediação em ambientes EAD.</li>
+                            <li>Elaboração de materiais e treinamentos para usuários de sistemas.</li>
+                            <li>Paixão por ensinar e desmistificar a tecnologia para todos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO FORMAÇÃO -->
+        <section id="formacao" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="animate-on-scroll text-center mb-16">
+                    <h2 class="text-4xl font-bold text-[var(--dark-blue)]">Formação e Cursos</h2>
+                    <p class="text-lg text-gray-600 mt-2">Minha jornada de aprendizado contínuo.</p>
+                </div>
+                <div class="grid lg:grid-cols-2 gap-16">
+                    <div class="animate-on-scroll">
+                        <h3 class="text-3xl font-bold mb-8 text-center lg:text-left">Formação Acadêmica</h3>
+                        <div class="space-y-8">
+                            <div class="timeline-item">
+                                <h4 class="text-xl font-bold">Formação Pedagógica em Informática</h4>
+                                <p class="text-gray-600 font-medium">Uniasselvi (2025 - 2026)</p>
+                            </div>
+                             <div class="timeline-item">
+                                <h4 class="text-xl font-bold">MBA em Gestão da Tecnologia da Informação</h4>
+                                <p class="text-gray-600 font-medium">Universidade Norte do Paraná - UNOPAR (2016 - 2017)</p>
+                            </div>
+                             <div class="timeline-item">
+                                <h4 class="text-xl font-bold">Bacharel em Sistemas de Informação</h4>
+                                <p class="text-gray-600 font-medium">Faculdade Hélio Rocha (2006 - 2011)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animate-on-scroll">
+                         <h3 class="text-3xl font-bold mb-8 text-center lg:text-left">Cursos e Bootcamps</h3>
+                         <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <p class="font-bold">Bootcamp Take Blip Web Developer</p>
+                                <p class="text-sm text-gray-500">78h - Digital Innovation One (2022)</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <p class="font-bold">Bootcamp FAST: Formação Acelerada em Soluções TechDesign</p>
+                                <p class="text-sm text-gray-500">72h - CESAR School (2022)</p>
+                            </div>
+                             <div class="bg-white p-4 rounded-lg shadow-md">
+                                <p class="font-bold">Inteligência Artificial e Computacional</p>
+                                <p class="text-sm text-gray-500">80h - FIAP (2025)</p>
+                            </div>
+                         </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -106,44 +221,59 @@
         <section id="projetos" class="py-20 md:py-32 bg-white">
             <div class="container mx-auto px-6">
                 <div class="animate-on-scroll text-center mb-12">
-                    <h2 class="text-4xl font-bold">Projetos e Experiências</h2>
-                    <p class="text-lg text-gray-600 mt-2">Uma seleção das minhas contribuições mais relevantes.</p>
+                    <h2 class="text-4xl font-bold text-[var(--dark-blue)]">Projetos e Experiências</h2>
+                    <p class="text-lg text-gray-600 mt-2">Minhas contribuições em projetos práticos.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Card de Projeto 1 -->
                     <div class="project-card animate-on-scroll bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer" 
-                         data-title="Sistema de Gestão - Sigeo Guarda" 
-                         data-description="Atuei na implementação de um sistema web para a Guarda Civil Municipal de Salvador, colaborando ativamente na coleta de requisitos, administração de bancos de dados (MySQL, PostgreSQL) e na elaboração de treinamentos para os usuários. Fui responsável por atuar como analista de suporte e participar de testes ágeis para resolução de bugs, garantindo a estabilidade e usabilidade do sistema."
-                         data-image="https://placehold.co/600x400/3b82f6/ffffff?text=Gestão+Pública"
+                         data-title="Modernização com Sigeo Guarda (ERP)" 
+                         data-description="Liderei a frente de suporte na implementação do Sigeo Guarda, um sistema ERP vital para a Guarda Civil Municipal de Salvador. Minha atuação incluiu desde o levantamento de requisitos com as equipes operacionais até a administração dos bancos de dados (MySQL, PostgreSQL) e a capacitação de todo o efetivo, garantindo uma transição de sistema suave e eficiente."
+                         data-image="https://placehold.co/600x400/2563eb/ffffff?text=Gestão+Pública"
                          data-link="#">
-                        <img src="https://placehold.co/600x400/3b82f6/ffffff?text=Gestão+Pública" alt="Projeto Sigeo Guarda" class="w-full h-56 object-cover">
+                        <img src="https://placehold.co/600x400/2563eb/ffffff?text=Gestão+Pública" alt="Projeto Sigeo Guarda" class="w-full h-56 object-cover">
                         <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-2">Sistema de Gestão - Sigeo Guarda</h3>
-                            <p class="text-gray-600">Implementação, administração e suporte de sistema web.</p>
+                            <h3 class="text-xl font-bold mb-2">Modernização com Sigeo Guarda (ERP)</h3>
+                            <p class="text-gray-600 mb-4">Implementação, administração e suporte de sistema web.</p>
+                            <div class="flex flex-wrap gap-2 text-sm">
+                                <span class="bg-gray-200 px-2 py-1 rounded">PHP</span>
+                                <span class="bg-gray-200 px-2 py-1 rounded">MySQL</span>
+                                <span class="bg-gray-200 px-2 py-1 rounded">Suporte</span>
+                            </div>
                         </div>
                     </div>
                     <!-- Card de Projeto 2 -->
                     <div class="project-card animate-on-scroll bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer"
-                         data-title="Tutor On-line - UNEB"
-                         data-description="Como Tutor On-line na Universidade do Estado da Bahia, fui responsável pelo acompanhamento das atividades dos alunos, oferecendo orientação, esclarecendo dúvidas e promovendo discussões sobre os conteúdos. Realizei a verificação de materiais e links das disciplinas, garantindo o bom funcionamento do ambiente virtual de aprendizagem e alinhando as práticas pedagógicas com o planejamento do professor formador."
+                         data-title="Tutoria EAD em Ciência da Computação"
+                         data-description="Como Tutor On-line na UNEB, fui o ponto de contato para alunos do curso de Ciência da Computação, guiando-os através das disciplinas, estimulando debates produtivos e garantindo a qualidade do ambiente virtual de aprendizagem. Fui responsável por assegurar que todos os recursos educacionais estivessem funcionais e alinhados com os objetivos pedagógicos."
                          data-image="https://placehold.co/600x400/10b981/ffffff?text=Educação+Tech"
                          data-link="#">
                         <img src="https://placehold.co/600x400/10b981/ffffff?text=Educação+Tech" alt="Projeto Tutoria UNEB" class="w-full h-56 object-cover">
                         <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-2">Tutor On-line - UNEB</h3>
-                            <p class="text-gray-600">Acompanhamento e suporte em ambiente EAD.</p>
+                             <h3 class="text-xl font-bold mb-2">Tutoria EAD em Ciência da Computação</h3>
+                            <p class="text-gray-600 mb-4">Acompanhamento e suporte em ambiente EAD.</p>
+                             <div class="flex flex-wrap gap-2 text-sm">
+                                <span class="bg-gray-200 px-2 py-1 rounded">EAD</span>
+                                <span class="bg-gray-200 px-2 py-1 rounded">Tutoria</span>
+                                <span class="bg-gray-200 px-2 py-1 rounded">Pedagogia</span>
+                            </div>
                         </div>
                     </div>
                     <!-- Card de Projeto 3 -->
                     <div class="project-card animate-on-scroll bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer"
                          data-title="Suporte ao SisCoFis - Exército Brasileiro"
-                         data-description="Como 3º Sargento de Comunicações, atuei como auxiliar administrativo e HELPDESK do SisCoFis (Sistema de Controle Físico de Material). Minhas funções incluíam suporte em informática, operação de equipamentos de comunicação e colaboração nos setores de Licitações, Contratos e Almoxarifado, garantindo a eficiência dos processos logísticos e de controle de materiais."
+                         data-description="Como 3º Sargento de Comunicações, fui peça chave na operação do SisCoFis (Sistema de Controle Físico de Material). Prestei suporte de helpdesk para o sistema, garantindo a continuidade das operações logísticas, e colaborei ativamente com os setores de Licitações e Almoxarifado para manter a integridade e eficiência do controle de materiais."
                          data-image="https://placehold.co/600x400/ef4444/ffffff?text=Logística+e+TI"
                          data-link="#">
                         <img src="https://placehold.co/600x400/ef4444/ffffff?text=Logística+e+TI" alt="Projeto SisCoFis" class="w-full h-56 object-cover">
                         <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-2">Suporte ao SisCoFis - Exército</h3>
-                            <p class="text-gray-600">Helpdesk e suporte ao sistema de controle de material.</p>
+                            <h3 class="text-xl font-bold mb-2">Suporte ao SisCoFis - Exército</h3>
+                            <p class="text-gray-600 mb-4">Helpdesk e suporte a sistema de controle de material.</p>
+                             <div class="flex flex-wrap gap-2 text-sm">
+                                <span class="bg-gray-200 px-2 py-1 rounded">Helpdesk</span>
+                                <span class="bg-gray-200 px-2 py-1 rounded">Logística</span>
+                                <span class="bg-gray-200 px-2 py-1 rounded">Redes</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -152,43 +282,63 @@
 
         <!-- SEÇÃO HABILIDADES -->
         <section id="habilidades" class="py-20 md:py-32">
-            <div class="container mx-auto px-6">
+             <div class="container mx-auto px-6">
                 <div class="animate-on-scroll text-center mb-12">
-                    <h2 class="text-4xl font-bold">Habilidades</h2>
-                     <p class="text-lg text-gray-600 mt-2">Tecnologias e ferramentas com as quais trabalho.</p>
+                    <h2 class="text-4xl font-bold text-[var(--dark-blue)]">Habilidades</h2>
                 </div>
-                <div class="animate-on-scroll max-w-4xl mx-auto flex flex-wrap justify-center items-center gap-4">
-                    <!-- Habilidades do currículo -->
-                    <span class="bg-blue-100 text-blue-800 text-lg font-medium px-4 py-2 rounded-full">HTML5</span>
-                    <span class="bg-blue-100 text-blue-800 text-lg font-medium px-4 py-2 rounded-full">CSS3</span>
-                    <span class="bg-blue-100 text-blue-800 text-lg font-medium px-4 py-2 rounded-full">JavaScript</span>
-                    <span class="bg-blue-100 text-blue-800 text-lg font-medium px-4 py-2 rounded-full">PHP</span>
-                    <span class="bg-blue-100 text-blue-800 text-lg font-medium px-4 py-2 rounded-full">SQL</span>
-                    <span class="bg-green-100 text-green-800 text-lg font-medium px-4 py-2 rounded-full">MySQL</span>
-                    <span class="bg-green-100 text-green-800 text-lg font-medium px-4 py-2 rounded-full">PostgreSQL</span>
-                    <span class="bg-green-100 text-green-800 text-lg font-medium px-4 py-2 rounded-full">Scriptcase</span>
-                     <span class="bg-yellow-100 text-yellow-800 text-lg font-medium px-4 py-2 rounded-full">Power BI</span>
-                    <span class="bg-gray-200 text-gray-800 text-lg font-medium px-4 py-2 rounded-full">GitHub</span>
-                    <span class="bg-gray-200 text-gray-800 text-lg font-medium px-4 py-2 rounded-full">Kanban</span>
-                    <span class="bg-red-100 text-red-800 text-lg font-medium px-4 py-2 rounded-full">Comunicação</span>
-                    <span class="bg-red-100 text-red-800 text-lg font-medium px-4 py-2 rounded-full">Trabalho em Equipe</span>
-                    <span class="bg-red-100 text-red-800 text-lg font-medium px-4 py-2 rounded-full">Multitarefas</span>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+                    <div class="animate-on-scroll">
+                        <h3 class="text-2xl font-bold mb-4 text-[var(--main-blue)]">Linguagens & BD</h3>
+                        <div class="flex flex-wrap justify-center gap-2">
+                             <span class="bg-blue-100 text-blue-800 text-md font-medium px-4 py-2 rounded-full">PHP</span>
+                            <span class="bg-blue-100 text-blue-800 text-md font-medium px-4 py-2 rounded-full">JavaScript</span>
+                             <span class="bg-blue-100 text-blue-800 text-md font-medium px-4 py-2 rounded-full">Python</span>
+                            <span class="bg-blue-100 text-blue-800 text-md font-medium px-4 py-2 rounded-full">HTML5</span>
+                            <span class="bg-blue-100 text-blue-800 text-md font-medium px-4 py-2 rounded-full">CSS3</span>
+                            <span class="bg-blue-100 text-blue-800 text-md font-medium px-4 py-2 rounded-full">SQL</span>
+                            <span class="bg-green-100 text-green-800 text-md font-medium px-4 py-2 rounded-full">MySQL</span>
+                            <span class="bg-green-100 text-green-800 text-md font-medium px-4 py-2 rounded-full">PostgreSQL</span>
+                        </div>
+                    </div>
+                     <div class="animate-on-scroll">
+                        <h3 class="text-2xl font-bold mb-4 text-[var(--main-blue)]">Ferramentas & Tech</h3>
+                        <div class="flex flex-wrap justify-center gap-2">
+                            <span class="bg-yellow-100 text-yellow-800 text-md font-medium px-4 py-2 rounded-full">Scriptcase</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-md font-medium px-4 py-2 rounded-full">Power BI</span>
+                            <span class="bg-gray-200 text-gray-800 text-md font-medium px-4 py-2 rounded-full">GitHub</span>
+                            <span class="bg-gray-200 text-gray-800 text-md font-medium px-4 py-2 rounded-full">ERP</span>
+                            <span class="bg-gray-200 text-gray-800 text-md font-medium px-4 py-2 rounded-full">MS Office</span>
+                        </div>
+                    </div>
+                     <div class="animate-on-scroll">
+                        <h3 class="text-2xl font-bold mb-4 text-[var(--main-blue)]">Profissionais</h3>
+                        <div class="flex flex-wrap justify-center gap-2">
+                             <span class="bg-red-100 text-red-800 text-md font-medium px-4 py-2 rounded-full">Comunicação</span>
+                            <span class="bg-red-100 text-red-800 text-md font-medium px-4 py-2 rounded-full">Trabalho em Equipe</span>
+                            <span class="bg-red-100 text-red-800 text-md font-medium px-4 py-2 rounded-full">Metodologias Ágeis</span>
+                            <span class="bg-red-100 text-red-800 text-md font-medium px-4 py-2 rounded-full">Resolução de Problemas</span>
+                            <span class="bg-red-100 text-red-800 text-md font-medium px-4 py-2 rounded-full">Liderança</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- SEÇÃO CONTATO -->
-        <section id="contato" class="py-20 md:py-32 bg-gray-800 text-white">
+        <section id="contato" class="py-20 md:py-32 bg-[var(--dark-blue)] text-[var(--text-light)]">
             <div class="container mx-auto px-6">
                 <div class="animate-on-scroll text-center">
-                    <h2 class="text-4xl font-bold">Vamos Conversar?</h2>
+                    <h2 class="text-4xl font-bold text-white">Vamos Conversar?</h2>
                     <p class="text-lg text-gray-300 mt-2 mb-8">Estou aberto a novas oportunidades e colaborações. Entre em contato!</p>
-                    <a href="mailto:wpbcpaz@gmail.com" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-colors duration-300">
+                    <a href="mailto:wpbcpaz@gmail.com" class="bg-[var(--main-blue)] hover:bg-[var(--light-blue)] text-white font-bold py-3 px-8 rounded-full text-lg transition-colors duration-300">
                         Enviar um E-mail
                     </a>
                     <div class="flex justify-center space-x-6 mt-10">
                         <a href="https://www.linkedin.com/in/wilderpaz" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors duration-300">
                              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.337 7.433c-.017-1.004.816-1.833 1.85-1.833.996 0 1.832.83 1.832 1.833s-.836 1.817-1.832 1.817-1.85-.813-1.85-1.817zM6.857 16.338H3.847v-8.59h3.01v8.59z" clip-rule="evenodd" /></svg>
+                        </a>
+                        <a href="https://github.com/wilderpaz" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors duration-300">
+                           <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.286 2.866 7.915 6.737 9.168.49.09.668-.213.668-.473 0-.234-.008-.868-.013-1.705-2.782.605-3.369-1.343-3.369-1.343-.446-1.13-1.09-1.432-1.09-1.432-.892-.61.067-.598.067-.598 1 .07 1.527 1.028 1.527 1.028.887 1.52 2.322 1.08 2.887.825.09-.64.348-1.08.635-1.33-2.2-.25-4.516-1.1-4.516-4.9 0-1.08.39-1.964 1.027-2.655-.103-.25-.446-1.253.097-2.62 0 0 .837-.267 2.743 1.022.796-.22 1.648-.33 2.497-.333.85 0 1.702.113 2.498.333 1.905-1.29 2.742-1.022 2.742-1.022.545 1.367.202 2.37.1 2.62.64.69 1.027 1.575 1.027 2.655 0 3.81-2.318 4.645-4.526 4.89.358.308.675.918.675 1.85l-.013 2.738c0 .26.175.568.675.473A10.005 10.005 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
                         </a>
                     </div>
                 </div>
@@ -205,8 +355,8 @@
             <img id="modal-image" src="" alt="Imagem do Projeto" class="w-full h-64 object-cover rounded-lg mb-6">
             <h3 id="modal-title" class="text-3xl font-bold mb-4"></h3>
             <p id="modal-description" class="text-gray-600 leading-relaxed mb-6"></p>
-            <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-colors duration-300">
-                Ver Projeto Online
+            <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-block bg-[var(--main-blue)] hover:bg-[var(--light-blue)] text-white font-bold py-2 px-6 rounded-lg transition-colors duration-300">
+                Ver Detalhes
             </a>
         </div>
     </div>
@@ -214,40 +364,26 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-
-            // --- Lógica para animação de scroll ---
             const scrollElements = document.querySelectorAll('.animate-on-scroll');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
                     }
                 });
-            }, {
-                threshold: 0.1 // A animação começa quando 10% do elemento está visível
-            });
-
+            }, { threshold: 0.1 });
             scrollElements.forEach(el => observer.observe(el));
 
-
-            // --- Lógica para o menu mobile ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-            // Fecha o menu mobile ao clicar em um link
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
             mobileMenu.addEventListener('click', (e) => {
-                if (e.target.tagName === 'A') {
-                    mobileMenu.classList.add('hidden');
-                }
+                if (e.target.tagName === 'A') mobileMenu.classList.add('hidden');
             });
 
-
-            // --- Lógica do Menu de Navegação Ativo ---
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
+            const sections = document.querySelectorAll('main section');
+            const navLinks = document.querySelectorAll('header nav a');
             const activateNavLink = (id) => {
                 navLinks.forEach(link => {
                     link.classList.remove('nav-link-active');
@@ -256,61 +392,41 @@
                     }
                 });
             };
-
             const sectionObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-                       activateNavLink(entry.target.id);
-                    }
+                    if (entry.isIntersecting) activateNavLink(entry.target.id);
                 });
-            }, {
-                rootMargin: '-50% 0px -50% 0px', // Ativa o link quando a seção está no meio da tela
-                threshold: 0
-            });
-            
+            }, { rootMargin: '-40% 0px -60% 0px' });
             sections.forEach(section => sectionObserver.observe(section));
 
-
-            // --- Lógica para o Modal de Projetos ---
             const projectCards = document.querySelectorAll('.project-card');
             const modal = document.getElementById('project-modal');
             const modalContent = document.getElementById('modal-content');
             const closeModalButton = document.getElementById('close-modal');
-            
             const modalImage = document.getElementById('modal-image');
             const modalTitle = document.getElementById('modal-title');
             const modalDescription = document.getElementById('modal-description');
             const modalLink = document.getElementById('modal-link');
-
+            
             projectCards.forEach(card => {
                 card.addEventListener('click', () => {
-                    // Preenche o modal com os dados do card
                     modalImage.src = card.dataset.image;
                     modalTitle.textContent = card.dataset.title;
                     modalDescription.textContent = card.dataset.description;
                     modalLink.href = card.dataset.link;
-                    
-                    // Mostra o modal
                     modal.classList.remove('hidden');
-                    // Adiciona a classe para animar a entrada do conteúdo do modal
                     setTimeout(() => modalContent.classList.add('is-visible'), 10);
                 });
             });
 
             const closeModal = () => {
-                 // Remove a classe de animação e esconde o modal
                 modalContent.classList.remove('is-visible');
                 modal.classList.add('hidden');
             };
-
             closeModalButton.addEventListener('click', closeModal);
-            // Fecha o modal ao clicar fora do conteúdo
             modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    closeModal();
-                }
+                if (e.target === modal) closeModal();
             });
-
         });
     </script>
 </body>
