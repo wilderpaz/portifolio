@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wilder Paz | Portfólio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos personalizados e para animações */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Um cinza claro suave para o fundo */
+        }
+        
+        /* Animações de entrada com Intersection Observer */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Estilo para o menu de navegação ativo */
+        .nav-link-active {
+            color: #3b82f6; /* Azul para o link ativo */
+            position: relative;
+        }
+
+        .nav-link-active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #3b82f6;
+        }
+
+        /* Efeito de hover sutil nos links de navegação */
+        .nav-link:hover {
+            color: #60a5fa; /* Azul mais claro no hover */
+        }
+
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- CABEÇALHO E NAVEGAÇÃO -->
+    <header id="header" class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-md transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#inicio" class="text-2xl font-bold text-gray-800">Wilder Paz</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#inicio" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Início</a>
+                <a href="#sobre" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Sobre Mim</a>
+                <a href="#projetos" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Projetos</a>
+                <a href="#habilidades" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Habilidades</a>
+                <a href="#contato" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Contato</a>
+            </nav>
+            <!-- Menu mobile (ícone) -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Menu mobile (dropdown) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white">
+            <a href="#inicio" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Início</a>
+            <a href="#sobre" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Sobre Mim</a>
+            <a href="#projetos" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Projetos</a>
+            <a href="#habilidades" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Habilidades</a>
+            <a href="#contato" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Contato</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- SEÇÃO INÍCIO -->
+        <section id="inicio" class="min-h-screen flex items-center bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <div class="animate-on-scroll">
+                    <img src="WilderPaz_Professor_Informática.jpg" alt="Foto de Perfil de Wilder Paz" class="w-40 h-40 mx-auto rounded-full shadow-xl mb-6 object-cover">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-2">Wilder Paz</h1>
+                    <p class="text-xl md:text-2xl text-blue-600 font-medium">Desenvolvedor Júnior</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO SOBRE MIM -->
+        <section id="sobre" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="animate-on-scroll max-w-3xl mx-auto text-center">
+                    <h2 class="text-4xl font-bold mb-6">Sobre Mim</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Formado em Sistemas de Informação com MBA em Gestão da TI, minha carreira é marcada pela transição estratégica da área de segurança pública para a tecnologia. Com experiência sólida em administração de sistemas, suporte e desenvolvimento web com PHP e Scriptcase, atuei na implementação e gestão de sistemas críticos. Minha trajetória como Guarda Civil Municipal e Sargento no Exército Brasileiro desenvolveu em mim disciplina, liderança e uma forte capacidade de resolução de problemas em ambientes dinâmicos. Atualmente, busco oportunidades como Desenvolvedor Júnior para aplicar meu conhecimento técnico e minha paixão por criar soluções eficientes.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO PROJETOS -->
+        <section id="projetos" class="py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="animate-on-scroll text-center mb-12">
+                    <h2 class="text-4xl font-bold">Projetos e Experiências</h2>
+                    <p class="text-lg text-gray-600 mt-2">Uma seleção das minhas contribuições mais relevantes.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Card de Projeto 1 -->
+                    <div class="project-card animate-on-scroll bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer" 
+                         data-title="Sistema de Gestão - Sigeo Guarda" 
+                         data-description="Atuei na implementação de um sistema web para a Guarda Civil Municipal de Salvador, colaborando ativamente na coleta de requisitos, administração de bancos de dados (MySQL, PostgreSQL) e na elaboração de treinamentos para os usuários. Fui responsável por atuar como analista de suporte e participar de testes ágeis para resolução de bugs, garantindo a estabilidade e usabilidade do sistema."
+                         data-image="https://placehold.co/600x400/3b82f6/ffffff?text=Gestão+Pública"
+                         data-link="#">
+                        <img src="https://placehold.co/600x400/3b82f6/ffffff?text=Gestão+Pública" alt="Projeto Sigeo Guarda" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">Sistema de Gestão - Sigeo Guarda</h3>
+                            <p class="text-gray-600">Implementação, administração e suporte de sistema web.</p>
+                        </div>
+                    </div>
+                    <!-- Card de Projeto 2 -->
+                    <div class="project-card animate-on-scroll bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer"
+                         data-title="Tutor On-line - UNEB"
+                         data-description="Como Tutor On-line na Universidade do Estado da Bahia, fui responsável pelo acompanhamento das atividades dos alunos, oferecendo orientação, esclarecendo dúvidas e promovendo discussões sobre os conteúdos. Realizei a verificação de materiais e links das disciplinas, garantindo o bom funcionamento do ambiente virtual de aprendizagem e alinhando as práticas pedagógicas com o planejamento do professor formador."
+                         data-image="https://placehold.co/600x400/10b981/ffffff?text=Educação+Tech"
+                         data-link="#">
+                        <img src="https://placehold.co/600x400/10b981/ffffff?text=Educação+Tech" alt="Projeto Tutoria UNEB" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">Tutor On-line - UNEB</h3>
+                            <p class="text-gray-600">Acompanhamento e suporte em ambiente EAD.</p>
+                        </div>
+                    </div>
+                    <!-- Card de Projeto 3 -->
+                    <div class="project-card animate-on-scroll bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer"
+                         data-title="Suporte ao SisCoFis - Exército Brasileiro"
+                         data-description="Como 3º Sargento de Comunicações, atuei como auxiliar administrativo e HELPDESK do SisCoFis (Sistema de Controle Físico de Material). Minhas funções incluíam suporte em informática, operação de equipamentos de comunicação e colaboração nos setores de Licitações, Contratos e Almoxarifado, garantindo a eficiência dos processos logísticos e de controle de materiais."
+                         data-image="https://placehold.co/600x400/ef4444/ffffff?text=Logística+e+TI"
+                         data-link="#">
+                        <img src="https://placehold.co/600x400/ef4444/ffffff?text=Logística+e+TI" alt="Projeto SisCoFis" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">Suporte ao SisCoFis - Exército</h3>
+                            <p class="text-gray-600">Helpdesk e suporte ao sistema de controle de material.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO HABILIDADES -->
+        <section id="habilidades" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="animate-on-scroll text-center mb-12">
+                    <h2 class="text-4xl font-bold">Habilidades</h2>
+                     <p class="text-lg text-gray-600 mt-2">Tecnologias e ferramentas com as quais trabalho.</p>
+                </div>
+                <div class="animate-on-scroll max-w-4xl mx-auto flex flex-wrap justify-center items-center gap-4">
+                    <!-- Habilidades do currículo -->
+                    <span class="bg-blue-100 text-blue-800 text-lg font-medium px-4 py-2 rounded-full">HTML5</span>
+                    <span class="bg-blue-100 text-blue-800 text-lg font-medium px-4 py-2 rounded-full">CSS3</span>
+                    <span class="bg-blue-100 text-blue-800 text-lg font-medium px-4 py-2 rounded-full">JavaScript</span>
+                    <span class="bg-blue-100 text-blue-800 text-lg font-medium px-4 py-2 rounded-full">PHP</span>
+                    <span class="bg-blue-100 text-blue-800 text-lg font-medium px-4 py-2 rounded-full">SQL</span>
+                    <span class="bg-green-100 text-green-800 text-lg font-medium px-4 py-2 rounded-full">MySQL</span>
+                    <span class="bg-green-100 text-green-800 text-lg font-medium px-4 py-2 rounded-full">PostgreSQL</span>
+                    <span class="bg-green-100 text-green-800 text-lg font-medium px-4 py-2 rounded-full">Scriptcase</span>
+                     <span class="bg-yellow-100 text-yellow-800 text-lg font-medium px-4 py-2 rounded-full">Power BI</span>
+                    <span class="bg-gray-200 text-gray-800 text-lg font-medium px-4 py-2 rounded-full">GitHub</span>
+                    <span class="bg-gray-200 text-gray-800 text-lg font-medium px-4 py-2 rounded-full">Kanban</span>
+                    <span class="bg-red-100 text-red-800 text-lg font-medium px-4 py-2 rounded-full">Comunicação</span>
+                    <span class="bg-red-100 text-red-800 text-lg font-medium px-4 py-2 rounded-full">Trabalho em Equipe</span>
+                    <span class="bg-red-100 text-red-800 text-lg font-medium px-4 py-2 rounded-full">Multitarefas</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO CONTATO -->
+        <section id="contato" class="py-20 md:py-32 bg-gray-800 text-white">
+            <div class="container mx-auto px-6">
+                <div class="animate-on-scroll text-center">
+                    <h2 class="text-4xl font-bold">Vamos Conversar?</h2>
+                    <p class="text-lg text-gray-300 mt-2 mb-8">Estou aberto a novas oportunidades e colaborações. Entre em contato!</p>
+                    <a href="mailto:wpbcpaz@gmail.com" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-colors duration-300">
+                        Enviar um E-mail
+                    </a>
+                    <div class="flex justify-center space-x-6 mt-10">
+                        <a href="https://www.linkedin.com/in/wilderpaz" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors duration-300">
+                             <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.337 7.433c-.017-1.004.816-1.833 1.85-1.833.996 0 1.832.83 1.832 1.833s-.836 1.817-1.832 1.817-1.85-.813-1.85-1.817zM6.857 16.338H3.847v-8.59h3.01v8.59z" clip-rule="evenodd" /></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL DE PROJETO -->
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4 hidden">
+        <div id="modal-content" class="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto relative p-6 md:p-8 animate-on-scroll">
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <img id="modal-image" src="" alt="Imagem do Projeto" class="w-full h-64 object-cover rounded-lg mb-6">
+            <h3 id="modal-title" class="text-3xl font-bold mb-4"></h3>
+            <p id="modal-description" class="text-gray-600 leading-relaxed mb-6"></p>
+            <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-colors duration-300">
+                Ver Projeto Online
+            </a>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Lógica para animação de scroll ---
+            const scrollElements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1 // A animação começa quando 10% do elemento está visível
+            });
+
+            scrollElements.forEach(el => observer.observe(el));
+
+
+            // --- Lógica para o menu mobile ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            // Fecha o menu mobile ao clicar em um link
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+
+
+            // --- Lógica do Menu de Navegação Ativo ---
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            const activateNavLink = (id) => {
+                navLinks.forEach(link => {
+                    link.classList.remove('nav-link-active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('nav-link-active');
+                    }
+                });
+            };
+
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                       activateNavLink(entry.target.id);
+                    }
+                });
+            }, {
+                rootMargin: '-50% 0px -50% 0px', // Ativa o link quando a seção está no meio da tela
+                threshold: 0
+            });
+            
+            sections.forEach(section => sectionObserver.observe(section));
+
+
+            // --- Lógica para o Modal de Projetos ---
+            const projectCards = document.querySelectorAll('.project-card');
+            const modal = document.getElementById('project-modal');
+            const modalContent = document.getElementById('modal-content');
+            const closeModalButton = document.getElementById('close-modal');
+            
+            const modalImage = document.getElementById('modal-image');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDescription = document.getElementById('modal-description');
+            const modalLink = document.getElementById('modal-link');
+
+            projectCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    // Preenche o modal com os dados do card
+                    modalImage.src = card.dataset.image;
+                    modalTitle.textContent = card.dataset.title;
+                    modalDescription.textContent = card.dataset.description;
+                    modalLink.href = card.dataset.link;
+                    
+                    // Mostra o modal
+                    modal.classList.remove('hidden');
+                    // Adiciona a classe para animar a entrada do conteúdo do modal
+                    setTimeout(() => modalContent.classList.add('is-visible'), 10);
+                });
+            });
+
+            const closeModal = () => {
+                 // Remove a classe de animação e esconde o modal
+                modalContent.classList.remove('is-visible');
+                modal.classList.add('hidden');
+            };
+
+            closeModalButton.addEventListener('click', closeModal);
+            // Fecha o modal ao clicar fora do conteúdo
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
