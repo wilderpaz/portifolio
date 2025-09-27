@@ -3,11 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de Wilder Paz, Desenvolvedor de Software, Professor de Informática e Agente Social. Conheça meus projetos, habilidades e experiência.">
+    <meta name="keywords" content="Wilder Paz, Desenvolvedor, Professor, Informática, PHP, Scriptcase, Segurança Pública, Educação, Tecnologia, Gemini API, IA">
     <title>Wilder Paz | Desenvolvedor & Professor de Informática</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://placehold.co/32x32/2563eb/ffffff?text=WP" type="image/png">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
     <style>
         /* Paleta de Cores Inspirada nas Fotos */
         :root {
@@ -27,9 +40,10 @@
         
         /* Efeito de fundo na seção de início */
         #inicio {
-            background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('fundo_perfil.jpg');
+            background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://placehold.co/1920x1080/0f172a/e2e8f0?text=Background');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed; /* Efeito Parallax */
         }
 
         .animate-on-scroll {
@@ -80,6 +94,63 @@
             border: 2px solid var(--bg-light);
         }
 
+        /* Estilo do Submenu */
+        .submenu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 8px 0;
+            margin-top: 10px;
+            min-width: 200px;
+            z-index: 60;
+        }
+        .submenu-item {
+            padding: 10px 20px;
+            display: block;
+            color: var(--text-dark);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .submenu-item:hover {
+            background-color: var(--bg-light);
+            color: var(--main-blue);
+        }
+        .has-submenu:hover .submenu {
+            display: block;
+        }
+
+        /* Botão de Voltar ao Topo */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--main-blue);
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: none; /* Começa escondido */
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+        #back-to-top.show {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        /* Estilos para o resultado da IA */
+        #gemini-result h3 { font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem; color: var(--dark-blue); }
+        #gemini-result h4 { font-size: 1.2rem; font-weight: bold; margin-top: 1.25rem; margin-bottom: 0.5rem; color: var(--main-blue); }
+        #gemini-result p { margin-bottom: 1rem; line-height: 1.6; }
+        #gemini-result ul { list-style-type: disc; padding-left: 20px; margin-bottom: 1rem; }
+        #gemini-result li { margin-bottom: 0.5rem; }
     </style>
 </head>
 <body class="text-gray-800">
@@ -88,36 +159,46 @@
     <header id="header" class="bg-white/90 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-md transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#inicio" class="text-2xl font-bold text-[var(--dark-blue)]">Wilder Paz</a>
-            <nav class="hidden lg:flex space-x-3 text-xs xl:text-sm">
+            <nav class="hidden lg:flex space-x-3 text-xs xl:text-sm items-center">
                 <a href="#inicio" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Início</a>
                 <a href="#sobre" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Sobre</a>
                 <a href="#atuacao" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Atuação</a>
-                <a href="#filosofia" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Filosofia</a>
                 <a href="#formacao" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Formação</a>
-                <a href="#complementar" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Complementar</a>
-                <a href="#projetos" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Projetos</a>
-                <a href="#engajamento" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Engajamento</a>
-                <a href="#blog" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Blog</a>
-                <a href="#depoimentos" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Depoimentos</a>
                 <a href="#habilidades" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Habilidades</a>
+                <!-- Submenu "Mais" -->
+                <div class="relative has-submenu">
+                    <button class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300 flex items-center">
+                        Mais <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                    </button>
+                    <div class="submenu">
+                        <a href="#ia-lab" class="submenu-item">Laboratório de IA</a>
+                        <a href="#projetos" class="submenu-item">Projetos</a>
+                        <a href="#engajamento" class="submenu-item">Engajamento Social</a>
+                        <a href="#hobbies" class="submenu-item">Hobbies</a>
+                        <a href="#galeria" class="submenu-item">Galeria</a>
+                        <a href="#blog" class="submenu-item">Blog</a>
+                        <a href="#depoimentos" class="submenu-item">Depoimentos</a>
+                    </div>
+                </div>
                 <a href="#contato" class="nav-link text-gray-600 font-medium pb-1 transition-colors duration-300">Contato</a>
             </nav>
             <button id="mobile-menu-button" class="lg:hidden text-[var(--dark-blue)]">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
         <div id="mobile-menu" class="hidden lg:hidden bg-white">
-             <a href="#inicio" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Início</a>
+            <a href="#inicio" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Início</a>
             <a href="#sobre" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Sobre</a>
             <a href="#atuacao" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Atuação</a>
-            <a href="#filosofia" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Filosofia</a>
             <a href="#formacao" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Formação</a>
-            <a href="#complementar" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Complementar</a>
+            <a href="#habilidades" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Habilidades</a>
+            <a href="#ia-lab" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Laboratório de IA</a>
             <a href="#projetos" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Projetos</a>
-            <a href="#engajamento" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Engajamento</a>
+            <a href="#engajamento" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Engajamento Social</a>
+            <a href="#hobbies" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Hobbies</a>
+            <a href="#galeria" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Galeria</a>
             <a href="#blog" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Blog</a>
             <a href="#depoimentos" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Depoimentos</a>
-            <a href="#habilidades" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Habilidades</a>
             <a href="#contato" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Contato</a>
         </div>
     </header>
@@ -142,7 +223,8 @@
                     <p class="text-lg text-gray-600 leading-relaxed mb-8">
                         Com uma carreira construída sobre a disciplina da segurança pública e a lógica da tecnologia, sou um profissional que une mundos. Bacharel em Sistemas de Informação e MBA em Gestão da TI, minha paixão por resolver problemas me levou ao desenvolvimento de software, enquanto minha vocação para compartilhar conhecimento me guia na área da educação. Busco ativamente oportunidades onde possa aplicar minhas habilidades técnicas em desenvolvimento e minha experiência pedagógica para criar soluções inovadoras e capacitar pessoas.
                     </p>
-                    <a href="docs/Currículo Wilder Paz_2025.pdf" download="CV_Wilder_Paz.pdf" class="bg-[var(--main-blue)] hover:bg-[var(--light-blue)] text-white font-bold py-3 px-8 rounded-full text-lg transition-colors duration-300">
+                    <a href="docs/Currículo Wilder Paz_2025.pdf" download="CV_Wilder_Paz.pdf" class="inline-flex items-center bg-[var(--main-blue)] hover:bg-[var(--light-blue)] text-white font-bold py-3 px-8 rounded-full text-lg transition-colors duration-300">
+                        <i data-lucide="download" class="w-5 h-5 mr-2"></i>
                         Baixar meu CV
                     </a>
                 </div>
@@ -158,7 +240,7 @@
                 </div>
                 <div class="grid md:grid-cols-2 gap-10">
                     <div class="animate-on-scroll bg-gray-50 rounded-lg shadow-lg p-8">
-                        <h3 class="text-2xl font-bold mb-4 text-[var(--main-blue)]">Tecnologia da Informação</h3>
+                        <h3 class="text-2xl font-bold mb-4 text-[var(--main-blue)] flex items-center"><i data-lucide="code-2" class="w-7 h-7 mr-3"></i>Tecnologia da Informação</h3>
                         <ul class="space-y-3 text-gray-600 list-disc list-inside">
                             <li>Desenvolvimento web com foco em PHP e Scriptcase.</li>
                             <li>Administração e modelagem de bancos de dados (MySQL, PostgreSQL).</li>
@@ -168,7 +250,7 @@
                         </ul>
                     </div>
                     <div class="animate-on-scroll bg-gray-50 rounded-lg shadow-lg p-8">
-                        <h3 class="text-2xl font-bold mb-4 text-[var(--main-blue)]">Educação e Tutoria</h3>
+                        <h3 class="text-2xl font-bold mb-4 text-[var(--main-blue)] flex items-center"><i data-lucide="graduation-cap" class="w-7 h-7 mr-3"></i>Educação e Tutoria</h3>
                          <ul class="space-y-3 text-gray-600 list-disc list-inside">
                             <li>Licenciando em Formação Pedagógica em Informática.</li>
                             <li>Experiência como Tutor On-line para cursos de nível superior.</li>
@@ -180,7 +262,7 @@
                 </div>
             </div>
         </section>
-
+        
         <!-- SEÇÃO FILOSOFIA DE ENSINO -->
         <section id="filosofia" class="py-20 md:py-32">
             <div class="container mx-auto px-6">
@@ -197,10 +279,10 @@
         <section id="formacao" class="py-20 md:py-32 bg-white">
             <div class="container mx-auto px-6">
                 <div class="animate-on-scroll text-center mb-16">
-                    <h2 class="text-4xl font-bold text-[var(--dark-blue)]">Formação Acadêmica e Bootcamps</h2>
-                    <p class="text-lg text-gray-600 mt-2">Minha jornada de aprendizado contínuo.</p>
+                    <h2 class="text-4xl font-bold text-[var(--dark-blue)]">Jornada Educacional</h2>
+                    <p class="text-lg text-gray-600 mt-2">Meu caminho de aprendizado contínuo.</p>
                 </div>
-                <div class="grid lg:grid-cols-2 gap-16">
+                <div class="grid lg:grid-cols-2 gap-x-16 gap-y-12">
                     <div class="animate-on-scroll">
                         <h3 class="text-3xl font-bold mb-8 text-center lg:text-left">Formação Acadêmica</h3>
                         <div class="space-y-8">
@@ -235,57 +317,141 @@
                             </div>
                          </div>
                     </div>
+                    <div class="animate-on-scroll lg:col-span-2">
+                        <h3 class="text-3xl font-bold mb-8 text-center lg:text-left mt-12">Formação Complementar</h3>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+                                <p class="font-bold">Aplicação do Power BI para Gestão</p>
+                                <p class="text-sm text-gray-500">25h - Enap (2024)</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+                                <p class="font-bold">O Papel dos Profissionais do Susp</p>
+                                <p class="text-sm text-gray-500">60h - Ministério da Justiça (2024)</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+                                <p class="font-bold">Crimes Cibernéticos - Noções Básicas</p>
+                                <p class="text-sm text-gray-500">60h - Ministério da Justiça (2023)</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+                                <p class="font-bold">ECA - Estatuto da Criança e do Adolescente</p>
+                                <p class="text-sm text-gray-500">20h - SEST SENAT (2023)</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+                                <p class="font-bold">Segurança Pública e Violência contra Mulheres</p>
+                                <p class="text-sm text-gray-500">40h - Enap (2023)</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+                                <p class="font-bold">Python Básico</p>
+                                <p class="text-sm text-gray-500">24h - CESAR School (2022)</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+                                <p class="font-bold">Python Basics</p>
+                                <p class="text-sm text-gray-500">10h - Let's Code (2021)</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+                                <p class="font-bold">Produção de Áudio e Vídeo para EAD</p>
+                                <p class="text-sm text-gray-500">60h - UNEB (2019)</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+                                <p class="font-bold">Formação de Tutores EAD</p>
+                                <p class="text-sm text-gray-500">60h - UNEB (2019)</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+                                <p class="font-bold">Modelagem de Dados</p>
+                                <p class="text-sm text-gray-500">12h - Fundação Bradesco (2018)</p>
+                            </div>
+                             <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+                                <p class="font-bold">Videomonitoramento</p>
+                                <p class="text-sm text-gray-500">60h - Ministério da Justiça (2018)</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+                                <p class="font-bold">HTML Básico</p>
+                                <p class="text-sm text-gray-500">23h - Fundação Bradesco (2011)</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO FORMAÇÃO COMPLEMENTAR -->
-        <section id="complementar" class="py-20 md:py-32">
+        <!-- SEÇÃO HABILIDADES -->
+        <section id="habilidades" class="py-20 md:py-32">
             <div class="container mx-auto px-6">
                 <div class="animate-on-scroll text-center mb-12">
-                    <h2 class="text-4xl font-bold text-[var(--dark-blue)]">Formação Complementar</h2>
-                    <p class="text-lg text-gray-600 mt-2">Cursos de extensão e capacitações relevantes.</p>
+                    <h2 class="text-4xl font-bold text-[var(--dark-blue)]">Habilidades</h2>
                 </div>
-                <div class="animate-on-scroll grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-white p-5 rounded-lg shadow-md text-center">
-                        <h3 class="font-bold text-md text-[var(--main-blue)]">Segurança e Violência Contra Mulheres</h3>
-                        <p class="text-sm text-gray-500">40h - Enap (2023)</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+                    <div class="animate-on-scroll">
+                        <h3 class="text-2xl font-bold mb-4 text-[var(--main-blue)]">Linguagens & BD</h3>
+                        <div class="flex flex-wrap justify-center gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-md font-medium px-4 py-2 rounded-full">PHP</span>
+                            <span class="bg-blue-100 text-blue-800 text-md font-medium px-4 py-2 rounded-full">JavaScript</span>
+                            <span class="bg-blue-100 text-blue-800 text-md font-medium px-4 py-2 rounded-full">Python</span>
+                            <span class="bg-blue-100 text-blue-800 text-md font-medium px-4 py-2 rounded-full">HTML5</span>
+                            <span class="bg-blue-100 text-blue-800 text-md font-medium px-4 py-2 rounded-full">CSS3</span>
+                            <span class="bg-blue-100 text-blue-800 text-md font-medium px-4 py-2 rounded-full">SQL</span>
+                            <span class="bg-green-100 text-green-800 text-md font-medium px-4 py-2 rounded-full">MySQL</span>
+                            <span class="bg-green-100 text-green-800 text-md font-medium px-4 py-2 rounded-full">PostgreSQL</span>
+                        </div>
                     </div>
-                    <div class="bg-white p-5 rounded-lg shadow-md text-center">
-                        <h3 class="font-bold text-md text-[var(--main-blue)]">Produção de Áudio e Vídeo para EAD</h3>
-                        <p class="text-sm text-gray-500">60h - UNEB (2019)</p>
+                    <div class="animate-on-scroll">
+                        <h3 class="text-2xl font-bold mb-4 text-[var(--main-blue)]">Ferramentas & Tech</h3>
+                        <div class="flex flex-wrap justify-center gap-2">
+                            <span class="bg-yellow-100 text-yellow-800 text-md font-medium px-4 py-2 rounded-full">Scriptcase</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-md font-medium px-4 py-2 rounded-full">Power BI</span>
+                            <span class="bg-gray-200 text-gray-800 text-md font-medium px-4 py-2 rounded-full">GitHub</span>
+                            <span class="bg-gray-200 text-gray-800 text-md font-medium px-4 py-2 rounded-full">ERP</span>
+                            <span class="bg-gray-200 text-gray-800 text-md font-medium px-4 py-2 rounded-full">MS Office</span>
+                        </div>
                     </div>
-                    <div class="bg-white p-5 rounded-lg shadow-md text-center">
-                        <h3 class="font-bold text-md text-[var(--main-blue)]">Formação de Tutores EAD</h3>
-                        <p class="text-sm text-gray-500">60h - UNEB (2019)</p>
-                    </div>
-                    <div class="bg-white p-5 rounded-lg shadow-md text-center">
-                        <h3 class="font-bold text-md text-[var(--main-blue)]">Python Básico</h3>
-                        <p class="text-sm text-gray-500">24h - CESAR School (2022)</p>
-                    </div>
-                    <div class="bg-white p-5 rounded-lg shadow-md text-center">
-                        <h3 class="font-bold text-md text-[var(--main-blue)]">Videomonitoramento</h3>
-                        <p class="text-sm text-gray-500">60h - Ministério da Justiça (2018)</p>
-                    </div>
-                    <div class="bg-white p-5 rounded-lg shadow-md text-center">
-                        <h3 class="font-bold text-md text-[var(--main-blue)]">Modelagem de Dados</h3>
-                        <p class="text-sm text-gray-500">12h - Fundação Bradesco (2018)</p>
-                    </div>
-                     <div class="bg-white p-5 rounded-lg shadow-md text-center">
-                        <h3 class="font-bold text-md text-[var(--main-blue)]">Estatuto da Criança e do Adolescente</h3>
-                        <p class="text-sm text-gray-500">20h - SEST SENAT (2023)</p>
-                    </div>
-                     <div class="bg-white p-5 rounded-lg shadow-md text-center">
-                        <h3 class="font-bold text-md text-[var(--main-blue)]">Python Basics</h3>
-                        <p class="text-sm text-gray-500">10h - Let's Code (2021)</p>
+                    <div class="animate-on-scroll">
+                        <h3 class="text-2xl font-bold mb-4 text-[var(--main-blue)]">Profissionais</h3>
+                        <div class="flex flex-wrap justify-center gap-2">
+                            <span class="bg-red-100 text-red-800 text-md font-medium px-4 py-2 rounded-full">Comunicação</span>
+                            <span class="bg-red-100 text-red-800 text-md font-medium px-4 py-2 rounded-full">Trabalho em Equipe</span>
+                            <span class="bg-red-100 text-red-800 text-md font-medium px-4 py-2 rounded-full">Metodologias Ágeis</span>
+                            <span class="bg-red-100 text-red-800 text-md font-medium px-4 py-2 rounded-full">Resolução de Problemas</span>
+                            <span class="bg-red-100 text-red-800 text-md font-medium px-4 py-2 rounded-full">Liderança</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- SEÇÃO LABORATÓRIO DE IA -->
+        <section id="ia-lab" class="py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="animate-on-scroll text-center mb-12">
+                    <h2 class="text-4xl font-bold text-[var(--dark-blue)]">Laboratório de IA</h2>
+                    <p class="text-lg text-gray-600 mt-2">Experimente uma ferramenta de conteúdo com a API do Gemini.</p>
+                </div>
+                <div class="animate-on-scroll max-w-3xl mx-auto bg-gray-50 p-6 md:p-8 rounded-lg shadow-xl border">
+                    <h3 class="text-2xl font-bold text-[var(--main-blue)] mb-4 flex items-center"><i data-lucide="brain-circuit" class="w-7 h-7 mr-3"></i>Gerador de Esboço para Blog</h3>
+                    <p class="text-gray-600 mb-6">Sem ideias para seu próximo artigo? Digite um tópico sobre tecnologia ou educação e deixe a IA criar um esboço para você.</p>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label for="topic-input" class="block text-sm font-medium text-gray-700 mb-1">Tópico do Artigo:</label>
+                            <input type="text" id="topic-input" class="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[var(--main-blue)] focus:border-[var(--main-blue)]" placeholder="Ex: O futuro do PHP no desenvolvimento web">
+                        </div>
+                        <button id="generate-button" class="inline-flex items-center w-full justify-center bg-[var(--main-blue)] hover:bg-[var(--light-blue)] text-white font-bold py-3 px-8 rounded-full text-lg transition-colors duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed">
+                            <span id="button-text" class="mr-2">✨ Gerar Esboço com IA</span>
+                            <div id="loading-spinner" class="hidden animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                        </button>
+                    </div>
+
+                    <div id="result-container" class="mt-8 border-t pt-6 hidden">
+                        <h4 class="text-xl font-bold text-gray-800 mb-4">Esboço Gerado:</h4>
+                        <div id="gemini-result" class="p-4 bg-white rounded-md border text-gray-700">
+                            <!-- O resultado da IA será inserido aqui -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- SEÇÃO PROJETOS -->
-        <section id="projetos" class="py-20 md:py-32 bg-white">
+        <section id="projetos" class="py-20 md:py-32">
             <div class="container mx-auto px-6">
                 <div class="animate-on-scroll text-center mb-12">
                     <h2 class="text-4xl font-bold text-[var(--dark-blue)]">Projetos e Experiências</h2>
@@ -293,7 +459,7 @@
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Card de Projeto 1 -->
-                    <div class="project-card animate-on-scroll bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer" 
+                    <div class="project-card animate-on-scroll bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer" 
                          data-title="Case Study: Modernização com Sigeo Guarda (ERP)" 
                          data-description="<p class='font-bold mb-2'>O Desafio:</p><p class='mb-4'>A Guarda Civil Municipal de Salvador necessitava de um sistema centralizado para gestão de pessoal, ocorrências e logística, substituindo processos manuais e planilhas descentralizadas.</p><p class='font-bold mb-2'>A Solução:</p><p class='mb-4'>Atuei na linha de frente da implementação do Sigeo Guarda, um ERP web. Minha função foi crucial na ponte entre a equipe de desenvolvimento e os usuários finais. Realizei o levantamento de requisitos, administrei os bancos de dados (MySQL, PostgreSQL) para garantir a integridade dos dados e desenvolvi e ministrei treinamentos para mais de 1000 agentes, garantindo uma alta taxa de adesão.</p><p class='font-bold mb-2'>Tecnologias Usadas:</p><p>PHP, Scriptcase, MySQL, PostgreSQL, Análise de Requisitos, Suporte Técnico.</p>"
                          data-image="https://placehold.co/600x400/2563eb/ffffff?text=Gestão+Pública"
@@ -304,8 +470,8 @@
                             <p class="text-gray-600 mb-4">Case Study de Implementação e Suporte.</p>
                         </div>
                     </div>
-                     <!-- Card de Projeto 2 -->
-                    <div class="project-card animate-on-scroll bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer"
+                    <!-- Card de Projeto 2 -->
+                    <div class="project-card animate-on-scroll bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer"
                          data-title="Case Study: Tutoria EAD em Ciência da Computação"
                          data-description="<p class='font-bold mb-2'>O Desafio:</p><p class='mb-4'>Garantir o engajamento e o sucesso acadêmico de alunos de Ciência da Computação em um ambiente 100% online, superando as barreiras da distância.</p><p class='font-bold mb-2'>A Solução:</p><p class='mb-4'>Como Tutor na UNEB, fui o principal mediador entre alunos e conteúdo. Criei fóruns de discussão proativos, ofereci suporte individualizado para resolução de dúvidas complexas e assegurei que todos os recursos digitais estivessem sempre funcionais. Minha atuação resultou em um aumento na taxa de participação dos alunos e feedback positivo sobre a qualidade do suporte.</p><p class='font-bold mb-2'>Competências Aplicadas:</p><p>Mediação Pedagógica, Ambientes Virtuais de Aprendizagem (AVA), Comunicação Assertiva, Suporte Educacional.</p>"
                          data-image="https://placehold.co/600x400/10b981/ffffff?text=Educação+Tech"
@@ -317,7 +483,7 @@
                         </div>
                     </div>
                     <!-- Card de Projeto 3 -->
-                    <div class="project-card animate-on-scroll bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer"
+                    <div class="project-card animate-on-scroll bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer"
                          data-title="Case Study: Suporte ao SisCoFis - Exército Brasileiro"
                          data-description="<p class='font-bold mb-2'>O Desafio:</p><p class='mb-4'>Manter a operacionalidade do Sistema de Controle Físico de Material (SisCoFis), uma ferramenta crítica para a logística e controle de bens do Exército.</p><p class='font-bold mb-2'>A Solução:</p><p class='mb-4'>Como Sargento de Comunicações, fui o ponto focal de Helpdesk para o SisCoFis. Diagnostiquei e resolvi problemas de hardware e software, garantindo o mínimo de tempo de inatividade. Colaborei com os setores de Licitações e Almoxarifado para otimizar processos, resultando em maior precisão no controle de inventário.</p><p class='font-bold mb-2'>Tecnologias e Competências:</p><p>Helpdesk, Suporte de TI, Logística, Redes de Computadores, Segurança da Informação.</p>"
                          data-image="https://placehold.co/600x400/ef4444/ffffff?text=Logística+e+TI"
@@ -333,43 +499,121 @@
         </section>
 
         <!-- SEÇÃO ENGAJAMENTO SOCIAL -->
-        <section id="engajamento" class="py-20 md:py-32">
+        <section id="engajamento" class="py-20 md:py-32 bg-white">
             <div class="container mx-auto px-6">
                 <div class="animate-on-scroll text-center mb-12">
                     <h2 class="text-4xl font-bold text-[var(--dark-blue)]">Engajamento Social e Comunitário</h2>
                     <p class="text-lg text-gray-600 mt-2">Acredito na tecnologia como ferramenta de transformação social.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                     <!-- Card Engajamento 1 -->
-                    <div class="animate-on-scroll bg-white p-6 rounded-lg shadow-lg text-center flex flex-col items-center">
+                    <!-- Card Engajamento 1 -->
+                    <div class="animate-on-scroll bg-gray-50 p-6 rounded-lg shadow-lg text-center flex flex-col items-center">
                         <img src="https://placehold.co/100x100/0f172a/ffffff?text=MOVAM-SE" alt="Logo MOVAM-SE" class="w-24 h-24 mb-4 rounded-full object-cover shadow-md">
                         <a href="https://movamse.com.br/" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--light-blue)] transition-colors">
                             <h3 class="text-xl font-bold mb-2 text-[var(--main-blue)]">MOVAM-SE</h3>
                         </a>
-                        <p class="text-gray-600">Como membro do Movimento dos Agentes de Segurança Pública Evangélicos do Brasil, atuo na promoção de valores éticos e no fortalecimento da cidadania dentro e fora das corporações, defendendo uma segurança pública mais humana e justa.</p>
+                        <p class="text-gray-600">Como membro do Movimento dos Agentes de Segurança Pública Evangélicos do Brasil, atuo na promoção de valores éticos e no fortalecimento da cidadania.</p>
                     </div>
                     <!-- Card Engajamento 2 -->
-                     <div class="animate-on-scroll bg-white p-6 rounded-lg shadow-lg text-center flex flex-col items-center">
+                    <div class="animate-on-scroll bg-gray-50 p-6 rounded-lg shadow-lg text-center flex flex-col items-center">
                         <img src="https://placehold.co/100x100/0f172a/ffffff?text=PIBM" alt="Logo PIBM Cachoeira" class="w-24 h-24 mb-4 rounded-full object-cover shadow-md">
                         <a href="https://www.instagram.com/pibmcachoeira/" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--light-blue)] transition-colors">
                             <h3 class="text-xl font-bold mb-2 text-[var(--main-blue)]">Trabalhos Religiosos</h3>
                         </a>
-                        <p class="text-gray-600">Participo ativamente em minha comunidade de fé, colaborando em projetos sociais e de apoio que visam o bem-estar e o desenvolvimento espiritual e material das pessoas ao meu redor.</p>
+                        <p class="text-gray-600">Participo ativamente em minha comunidade de fé, colaborando em projetos sociais e de apoio que visam o bem-estar e o desenvolvimento das pessoas.</p>
                     </div>
-                     <!-- Card Engajamento 3 -->
-                    <div class="animate-on-scroll bg-white p-6 rounded-lg shadow-lg text-center flex flex-col items-center">
+                    <!-- Card Engajamento 3 -->
+                    <div class="animate-on-scroll bg-gray-50 p-6 rounded-lg shadow-lg text-center flex flex-col items-center">
                         <img src="https://placehold.co/100x100/0f172a/ffffff?text=Ação" alt="Ícone Campanhas Solidárias" class="w-24 h-24 mb-4 rounded-full object-cover shadow-md">
                         <a href="https://photos.app.goo.gl/uyF1xDoLJ7TXKFvSA" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--light-blue)] transition-colors">
                             <h3 class="text-xl font-bold mb-2 text-[var(--main-blue)]">Campanhas Solidárias</h3>
                         </a>
-                        <p class="text-gray-600">Organizo e participo de campanhas de arrecadação de alimentos, agasalhos e outros itens essenciais para apoiar famílias em situação de vulnerabilidade em Salvador.</p>
+                        <p class="text-gray-600">Organizo e participo de campanhas de arrecadação de alimentos e agasalhos para apoiar famílias em situação de vulnerabilidade em Salvador.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- SEÇÃO HOBBIES (NOVA) -->
+        <section id="hobbies" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="animate-on-scroll text-center mb-12">
+                    <h2 class="text-4xl font-bold text-[var(--dark-blue)]">Paixões e Hobbies</h2>
+                    <p class="text-lg text-gray-600 mt-2">Além dos códigos e das aulas, um pouco do que me move.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Hobby Card -->
+                    <div class="animate-on-scroll text-center bg-white p-4 rounded-lg shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://placehold.co/200x200/2563eb/ffffff?text=Fé" alt="Ícone de Igreja" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover">
+                        <h3 class="font-bold text-lg text-[var(--main-blue)]">Ir à Igreja</h3>
+                        <p class="text-sm text-gray-600 mt-1">Minha fé é a base de tudo, um momento de reconexão e comunidade.</p>
+                    </div>
+                    <!-- Hobby Card -->
+                    <div class="animate-on-scroll text-center bg-white p-4 rounded-lg shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://placehold.co/200x200/10b981/ffffff?text=Música" alt="Ícone de Violão" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover">
+                        <h3 class="font-bold text-lg text-[var(--main-blue)]">Tocar Violão</h3>
+                        <p class="text-sm text-gray-600 mt-1">Arranhando umas notas para relaxar a mente e alegrar a alma.</p>
+                    </div>
+                    <!-- Hobby Card -->
+                    <div class="animate-on-scroll text-center bg-white p-4 rounded-lg shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://placehold.co/200x200/ef4444/ffffff?text=Esporte" alt="Ícone de Goleiro" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover">
+                        <h3 class="font-bold text-lg text-[var(--main-blue)]">Goleiro</h3>
+                        <p class="text-sm text-gray-600 mt-1">Agilidade e reflexo para defender o gol nos fins de semana.</p>
+                    </div>
+                    <!-- Hobby Card -->
+                    <div class="animate-on-scroll text-center bg-white p-4 rounded-lg shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://placehold.co/200x200/f59e0b/ffffff?text=Água" alt="Ícone de Natação" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover">
+                        <h3 class="font-bold text-lg text-[var(--main-blue)]">Natação</h3>
+                        <p class="text-sm text-gray-600 mt-1">Na água, encontro meu melhor estado de fluxo e superação.</p>
+                    </div>
+                    <!-- Hobby Card -->
+                    <div class="animate-on-scroll text-center bg-white p-4 rounded-lg shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://placehold.co/200x200/8b5cf6/ffffff?text=Cultura" alt="Ícone de Capoeira" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover">
+                        <h3 class="font-bold text-lg text-[var(--main-blue)]">Capoeira</h3>
+                        <p class="text-sm text-gray-600 mt-1">Expressão, luta e cultura em um só movimento gingado.</p>
+                    </div>
+                    <!-- Hobby Card -->
+                    <div class="animate-on-scroll text-center bg-white p-4 rounded-lg shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://placehold.co/200x200/ec4899/ffffff?text=Aventura" alt="Ícone de Ciclismo" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover">
+                        <h3 class="font-bold text-lg text-[var(--main-blue)]">Ciclismo</h3>
+                        <p class="text-sm text-gray-600 mt-1">Pedalando por aí para descobrir novos lugares e manter o corpo ativo.</p>
+                    </div>
+                    <!-- Hobby Card -->
+                    <div class="animate-on-scroll text-center bg-white p-4 rounded-lg shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://placehold.co/200x200/1e293b/ffffff?text=Força" alt="Ícone de Calistenia" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover">
+                        <h3 class="font-bold text-lg text-[var(--main-blue)]">Calistenia</h3>
+                        <p class="text-sm text-gray-600 mt-1">Usando o peso do corpo para construir força e disciplina.</p>
+                    </div>
+                    <!-- Hobby Card -->
+                    <div class="animate-on-scroll text-center bg-white p-4 rounded-lg shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://placehold.co/200x200/64748b/ffffff?text=Estratégia" alt="Ícone de Xadrez" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover">
+                        <h3 class="font-bold text-lg text-[var(--main-blue)]">Xadrez</h3>
+                        <p class="text-sm text-gray-600 mt-1">Cada partida é um novo desafio para a mente. Xeque-mate!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO GALERIA DE FOTOS -->
+        <section id="galeria" class="py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="animate-on-scroll text-center mb-12">
+                    <h2 class="text-4xl font-bold text-[var(--dark-blue)]">Galeria de Projetos e Eventos</h2>
+                    <p class="text-lg text-gray-600 mt-2">Registros de momentos importantes na minha jornada.</p>
+                </div>
+                <div class="animate-on-scroll rounded-lg shadow-xl overflow-hidden">
+                    <iframe 
+                        src="https://photos.app.goo.gl/uyF1xDoLJ7TXKFvSA" 
+                        class="w-full h-[600px] border-0" 
+                        allowfullscreen="" 
+                        aria-label="Galeria de fotos do Google Photos">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
         <!-- SEÇÃO BLOG -->
-        <section id="blog" class="py-20 md:py-32 bg-white">
+        <section id="blog" class="py-20 md:py-32">
             <div class="container mx-auto px-6">
                 <div class="animate-on-scroll text-center mb-12">
                     <h2 class="text-4xl font-bold text-[var(--dark-blue)]">Blog e Artigos</h2>
@@ -377,7 +621,7 @@
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Artigo 1 -->
-                    <div class="project-card animate-on-scroll bg-gray-50 rounded-lg shadow-lg overflow-hidden" 
+                    <div class="project-card animate-on-scroll bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer" 
                          data-title="5 Metodologias Ativas para Revolucionar sua Aula de Informática" 
                          data-description="<p>Esqueça as aulas expositivas. Neste artigo, exploramos 5 metodologias ativas, como a Aprendizagem Baseada em Projetos (PBL) e a Sala de Aula Invertida, que podem transformar seus alunos de espectadores passivos em protagonistas do conhecimento tecnológico.</p>"
                          data-image="https://placehold.co/600x400/2563eb/ffffff?text=Educação"
@@ -389,7 +633,7 @@
                         </div>
                     </div>
                     <!-- Artigo 2 -->
-                    <div class="project-card animate-on-scroll bg-gray-50 rounded-lg shadow-lg overflow-hidden" 
+                    <div class="project-card animate-on-scroll bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer" 
                          data-title="A Tecnologia como Aliada da Segurança Pública Municipal" 
                          data-description="<p>Da análise de dados para prevenção de crimes ao uso de aplicativos para comunicação comunitária. Discuto como a tecnologia pode otimizar o trabalho das Guardas Municipais, tornando as cidades mais seguras e a atuação dos agentes mais estratégica e eficiente.</p>"
                          data-image="https://placehold.co/600x400/10b981/ffffff?text=Segurança"
@@ -401,7 +645,7 @@
                         </div>
                     </div>
                     <!-- Artigo 3 -->
-                    <div class="project-card animate-on-scroll bg-gray-50 rounded-lg shadow-lg overflow-hidden"
+                    <div class="project-card animate-on-scroll bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer"
                          data-title="PHP ainda vale a pena em 2025? Uma análise prática."
                          data-description="<p>Com o surgimento de novas linguagens e frameworks, muitos questionam a relevância do PHP. Neste artigo, faço uma análise baseada em minha experiência prática, mostrando onde o PHP continua sendo uma ferramenta poderosa e por que ele ainda é uma habilidade valiosa no mercado de desenvolvimento web.</p>"
                          data-image="https://placehold.co/600x400/ef4444/ffffff?text=Tecnologia"
@@ -417,7 +661,7 @@
         </section>
 
         <!-- SEÇÃO DEPOIMENTOS -->
-        <section id="depoimentos" class="py-20 md:py-32">
+        <section id="depoimentos" class="py-20 md:py-32 bg-white">
             <div class="container mx-auto px-6">
                  <div class="animate-on-scroll text-center mb-12">
                     <h2 class="text-4xl font-bold text-[var(--dark-blue)]">Depoimentos</h2>
@@ -425,21 +669,21 @@
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Depoimento 1 -->
-                    <div class="animate-on-scroll bg-white p-8 rounded-lg shadow-lg">
+                    <div class="animate-on-scroll bg-gray-50 p-8 rounded-lg shadow-lg">
                         <p class="text-gray-600 italic mb-6">"Wilder foi fundamental na transição para o novo sistema. Sua paciência para treinar a equipe e sua agilidade para resolver problemas técnicos foram um diferencial enorme para o sucesso do projeto."</p>
                         <div>
                             <p class="font-bold text-right">- Ex-Colega, Guarda Civil Municipal</p>
                         </div>
                     </div>
                     <!-- Depoimento 2 -->
-                    <div class="animate-on-scroll bg-white p-8 rounded-lg shadow-lg">
+                    <div class="animate-on-scroll bg-gray-50 p-8 rounded-lg shadow-lg">
                         <p class="text-gray-600 italic mb-6">"Como tutor, o Wilder sempre ia além do esperado para garantir que entendêssemos o conteúdo. Ele tem um talento nato para explicar temas complexos de forma simples e acessível."</p>
                         <div>
                             <p class="font-bold text-right">- Ex-Aluno, UNEB</p>
                         </div>
                     </div>
                     <!-- Depoimento 3 -->
-                    <div class="animate-on-scroll bg-white p-8 rounded-lg shadow-lg">
+                    <div class="animate-on-scroll bg-gray-50 p-8 rounded-lg shadow-lg">
                         <p class="text-gray-600 italic mb-6">"Profissional dedicado e com grande capacidade de trabalhar em equipe. Sua disciplina, herdada da carreira militar, se reflete na qualidade e organização de suas entregas."</p>
                         <div>
                             <p class="font-bold text-right">- Ex-Superior, Exército Brasileiro</p>
@@ -449,68 +693,25 @@
             </div>
         </section>
         
-        <!-- SEÇÃO HABILIDADES -->
-        <section id="habilidades" class="py-20 md:py-32 bg-white">
-             <div class="container mx-auto px-6">
-                <div class="animate-on-scroll text-center mb-12">
-                    <h2 class="text-4xl font-bold text-[var(--dark-blue)]">Habilidades</h2>
-                </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
-                    <div class="animate-on-scroll">
-                        <h3 class="text-2xl font-bold mb-4 text-[var(--main-blue)]">Linguagens & BD</h3>
-                        <div class="flex flex-wrap justify-center gap-2">
-                             <span class="bg-blue-100 text-blue-800 text-md font-medium px-4 py-2 rounded-full">PHP</span>
-                            <span class="bg-blue-100 text-blue-800 text-md font-medium px-4 py-2 rounded-full">JavaScript</span>
-                             <span class="bg-blue-100 text-blue-800 text-md font-medium px-4 py-2 rounded-full">Python</span>
-                            <span class="bg-blue-100 text-blue-800 text-md font-medium px-4 py-2 rounded-full">HTML5</span>
-                            <span class="bg-blue-100 text-blue-800 text-md font-medium px-4 py-2 rounded-full">CSS3</span>
-                            <span class="bg-blue-100 text-blue-800 text-md font-medium px-4 py-2 rounded-full">SQL</span>
-                            <span class="bg-green-100 text-green-800 text-md font-medium px-4 py-2 rounded-full">MySQL</span>
-                            <span class="bg-green-100 text-green-800 text-md font-medium px-4 py-2 rounded-full">PostgreSQL</span>
-                        </div>
-                    </div>
-                     <div class="animate-on-scroll">
-                        <h3 class="text-2xl font-bold mb-4 text-[var(--main-blue)]">Ferramentas & Tech</h3>
-                        <div class="flex flex-wrap justify-center gap-2">
-                            <span class="bg-yellow-100 text-yellow-800 text-md font-medium px-4 py-2 rounded-full">Scriptcase</span>
-                            <span class="bg-yellow-100 text-yellow-800 text-md font-medium px-4 py-2 rounded-full">Power BI</span>
-                            <span class="bg-gray-200 text-gray-800 text-md font-medium px-4 py-2 rounded-full">GitHub</span>
-                            <span class="bg-gray-200 text-gray-800 text-md font-medium px-4 py-2 rounded-full">ERP</span>
-                            <span class="bg-gray-200 text-gray-800 text-md font-medium px-4 py-2 rounded-full">MS Office</span>
-                        </div>
-                    </div>
-                     <div class="animate-on-scroll">
-                        <h3 class="text-2xl font-bold mb-4 text-[var(--main-blue)]">Profissionais</h3>
-                        <div class="flex flex-wrap justify-center gap-2">
-                             <span class="bg-red-100 text-red-800 text-md font-medium px-4 py-2 rounded-full">Comunicação</span>
-                            <span class="bg-red-100 text-red-800 text-md font-medium px-4 py-2 rounded-full">Trabalho em Equipe</span>
-                            <span class="bg-red-100 text-red-800 text-md font-medium px-4 py-2 rounded-full">Metodologias Ágeis</span>
-                            <span class="bg-red-100 text-red-800 text-md font-medium px-4 py-2 rounded-full">Resolução de Problemas</span>
-                            <span class="bg-red-100 text-red-800 text-md font-medium px-4 py-2 rounded-full">Liderança</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- SEÇÃO CONTATO -->
         <section id="contato" class="py-20 md:py-32 bg-[var(--dark-blue)] text-[var(--text-light)]">
             <div class="container mx-auto px-6">
                 <div class="animate-on-scroll text-center">
                     <h2 class="text-4xl font-bold text-white">Vamos Conversar?</h2>
                     <p class="text-lg text-gray-300 mt-2 mb-8">Estou aberto a novas oportunidades e colaborações. Entre em contato!</p>
-                    <a href="mailto:wpbcpaz@gmail.com" class="bg-[var(--main-blue)] hover:bg-[var(--light-blue)] text-white font-bold py-3 px-8 rounded-full text-lg transition-colors duration-300">
+                    <a href="mailto:wpbcpaz@gmail.com" class="inline-flex items-center bg-[var(--main-blue)] hover:bg-[var(--light-blue)] text-white font-bold py-3 px-8 rounded-full text-lg transition-colors duration-300">
+                        <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
                         Enviar um E-mail
                     </a>
                     <div class="flex justify-center space-x-6 mt-10">
                         <a href="https://www.linkedin.com/in/wilderpaz" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="LinkedIn">
-                             <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.337 7.433c-.017-1.004.816-1.833 1.85-1.833.996 0 1.832.83 1.832 1.833s-.836 1.817-1.832 1.817-1.85-.813-1.85-1.817zM6.857 16.338H3.847v-8.59h3.01v8.59z" clip-rule="evenodd" /></svg>
+                            <i data-lucide="linkedin" class="w-8 h-8"></i>
                         </a>
                         <a href="https://github.com/wilderpaz" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="GitHub">
-                           <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.286 2.866 7.915 6.737 9.168.49.09.668-.213.668-.473 0-.234-.008-.868-.013-1.705-2.782.605-3.369-1.343-3.369-1.343-.446-1.13-1.09-1.432-1.09-1.432-.892-.61.067-.598.067-.598 1 .07 1.527 1.028 1.527 1.028.887 1.52 2.322 1.08 2.887.825.09-.64.348-1.08.635-1.33-2.2-.25-4.516-1.1-4.516-4.9 0-1.08.39-1.964 1.027-2.655-.103-.25-.446-1.253.097-2.62 0 0 .837-.267 2.743 1.022.796-.22 1.648-.33 2.497-.333.85 0 1.702.113 2.498.333 1.905-1.29 2.742-1.022 2.742-1.022.545 1.367.202 2.37.1 2.62.64.69 1.027 1.575 1.027 2.655 0 3.81-2.318 4.645-4.526 4.89.358.308.675.918.675 1.85l-.013 2.738c0 .26.175.568.675.473A10.005 10.005 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
+                           <i data-lucide="github" class="w-8 h-8"></i>
                         </a>
                         <a href="https://www.instagram.com/wilderpazcruz/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Instagram">
-                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2c-2.717 0-3.056.01-4.122.06-1.065.05-1.79.217-2.428.465a4.902 4.902 0 00-1.772 1.153A4.902 4.902 0 002.52 6.398c-.248.638-.415 1.363-.465 2.428C2.01 9.944 2 10.283 2 12s.01 2.056.06 4.122c.05 1.065.217 1.79.465 2.428a4.902 4.902 0 001.153 1.772A4.902 4.902 0 006.398 21.48c.638.248 1.363.415 2.428.465C9.944 21.99 10.283 22 12 22s2.056-.01 4.122-.06c1.065-.05 1.79-.217 2.428-.465a4.902 4.902 0 001.772-1.153 4.902 4.902 0 001.153-1.772c.248-.638.415-1.363.465-2.428C21.99 14.056 22 13.717 22 12s-.01-2.056-.06-4.122c-.05-1.065-.217-1.79-.465-2.428a4.902 4.902 0 00-1.153-1.772A4.902 4.902 0 0017.602 2.52c-.638-.248-1.363-.415-2.428-.465C14.056 2.01 13.717 2 12 2zm0 1.62c2.67 0 2.987.01 4.042.058 1.06.048 1.63.208 2.05.39a3.278 3.278 0 011.196.802 3.278 3.278 0 01.802 1.196c.182.42.342.99.39 2.05.048 1.055.058 1.372.058 4.042s-.01 2.987-.058 4.042c-.048 1.06-.208 1.63-.39 2.05a3.278 3.278 0 01-.802 1.196 3.278 3.278 0 01-1.196.802c-.42.182-.99.342-2.05.39-1.055.048-1.372.058-4.042.058s-2.987-.01-4.042-.058c-1.06-.048-1.63-.208-2.05-.39a3.278 3.278 0 01-1.196-.802 3.278 3.278 0 01-.802-1.196c-.182-.42-.342-.99-.39-2.05-.048-1.055-.058-1.372-.058-4.042s.01-2.987.058-4.042c.048-1.06.208-1.63.39-2.05a3.278 3.278 0 01.802-1.196 3.278 3.278 0 011.196-.802c.42-.182.99-.342 2.05-.39C9.013 3.63 9.33 3.62 12 3.62zM12 7.25a4.75 4.75 0 100 9.5 4.75 4.75 0 000-9.5zM12 15a3 3 0 110-6 3 3 0 010 6zm6.156-7.81a1.125 1.125 0 100-2.25 1.125 1.125 0 000 2.25z" clip-rule="evenodd" /></svg>
+                            <i data-lucide="instagram" class="w-8 h-8"></i>
                         </a>
                     </div>
                 </div>
@@ -521,8 +722,8 @@
     <!-- MODAL DE PROJETO -->
     <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-70 z-[100] flex items-center justify-center p-4 hidden">
         <div id="modal-content" class="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto relative p-6 md:p-8 animate-on-scroll">
-            <button id="close-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800" aria-label="Fechar modal">
+                <i data-lucide="x" class="w-6 h-6"></i>
             </button>
             <img id="modal-image" src="" alt="Imagem do Projeto" class="w-full h-64 object-cover rounded-lg mb-6">
             <h3 id="modal-title" class="text-3xl font-bold mb-4"></h3>
@@ -532,20 +733,30 @@
             </a>
         </div>
     </div>
+    
+    <!-- BOTÃO VOLTAR AO TOPO -->
+    <a href="#inicio" id="back-to-top" aria-label="Voltar ao topo">
+        <i data-lucide="arrow-up" class="w-6 h-6"></i>
+    </a>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Inicializa os ícones do Lucide
+            lucide.createIcons();
+
+            // --- Animação de Scroll ---
             const scrollElements = document.querySelectorAll('.animate-on-scroll');
-            const observer = new IntersectionObserver((entries) => {
+            const scrollObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
+                        scrollObserver.unobserve(entry.target);
                     }
                 });
             }, { threshold: 0.1 });
-            scrollElements.forEach(el => observer.observe(el));
+            scrollElements.forEach(el => scrollObserver.observe(el));
 
+            // --- Menu Mobile ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
@@ -553,8 +764,9 @@
                 if (e.target.tagName === 'A') mobileMenu.classList.add('hidden');
             });
 
+            // --- Navegação Ativa com Scroll ---
             const sections = document.querySelectorAll('main section');
-            const navLinks = document.querySelectorAll('header nav a');
+            const navLinks = document.querySelectorAll('header nav a.nav-link');
             const activateNavLink = (id) => {
                 navLinks.forEach(link => {
                     link.classList.remove('nav-link-active');
@@ -570,6 +782,7 @@
             }, { rootMargin: '-40% 0px -60% 0px' });
             sections.forEach(section => sectionObserver.observe(section));
 
+            // --- Modal de Projetos ---
             const projectCards = document.querySelectorAll('.project-card');
             const modal = document.getElementById('project-modal');
             const modalContent = document.getElementById('modal-content');
@@ -583,8 +796,13 @@
                 card.addEventListener('click', () => {
                     modalImage.src = card.dataset.image;
                     modalTitle.textContent = card.dataset.title;
-                    modalDescription.innerHTML = card.dataset.description; // Usar innerHTML para renderizar o HTML da descrição
+                    modalDescription.innerHTML = card.dataset.description;
                     modalLink.href = card.dataset.link;
+                    if (card.dataset.link === "#") {
+                        modalLink.classList.add('hidden');
+                    } else {
+                        modalLink.classList.remove('hidden');
+                    }
                     modal.classList.remove('hidden');
                     setTimeout(() => modalContent.classList.add('is-visible'), 10);
                 });
@@ -597,6 +815,90 @@
             closeModalButton.addEventListener('click', closeModal);
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) closeModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === "Escape" && !modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
+
+            // --- Botão de Voltar ao Topo ---
+            const backToTopButton = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+
+            // --- Gemini AI Content Generator ---
+            const generateButton = document.getElementById('generate-button');
+            const buttonText = document.getElementById('button-text');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            const topicInput = document.getElementById('topic-input');
+            const resultContainer = document.getElementById('result-container');
+            const geminiResult = document.getElementById('gemini-result');
+
+            generateButton.addEventListener('click', async () => {
+                const topic = topicInput.value.trim();
+                if (!topic) {
+                    // Use a custom message box instead of alert
+                    geminiResult.innerHTML = `<p class="text-yellow-600">Por favor, insira um tópico para gerar o esboço.</p>`;
+                    resultContainer.classList.remove('hidden');
+                    return;
+                }
+
+                generateButton.disabled = true;
+                buttonText.textContent = 'Gerando...';
+                loadingSpinner.classList.remove('hidden');
+                geminiResult.innerHTML = '';
+                resultContainer.classList.add('hidden');
+
+                try {
+                    const apiKey = ""; 
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                    const systemPrompt = "Você é um assistente de redação especialista em tecnologia e educação. Sua tarefa é criar um esboço detalhado para um post de blog sobre o tópico fornecido. O esboço deve ser bem estruturado e em português do Brasil. O formato deve ser: um título criativo e chamativo, uma introdução de um parágrafo que capture o interesse do leitor, uma lista de 3 a 5 pontos principais (use subtítulos para cada ponto) com uma breve descrição do que abordar em cada um, e um parágrafo de conclusão que resuma as ideias e ofereça uma reflexão final. Use formatação HTML simples (h3 para o título, h4 para subtítulos, p para parágrafos, ul/li para listas) para a resposta.";
+
+                    const payload = {
+                        contents: [{ parts: [{ text: topic }] }],
+                        systemInstruction: { parts: [{ text: systemPrompt }] },
+                    };
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        const errorBody = await response.text();
+                        console.error("API Error Response:", errorBody);
+                        throw new Error(`Erro na API: ${response.status} ${response.statusText}`);
+                    }
+
+                    const result = await response.json();
+                    const candidate = result.candidates?.[0];
+
+                    if (candidate && candidate.content?.parts?.[0]?.text) {
+                        const generatedText = candidate.content.parts[0].text;
+                        geminiResult.innerHTML = generatedText;
+                        resultContainer.classList.remove('hidden');
+                    } else {
+                        console.error("Invalid response structure:", result);
+                        throw new Error('Não foi possível gerar o conteúdo. A resposta da API está em um formato inesperado.');
+                    }
+
+                } catch (error) {
+                    console.error("Erro ao chamar a API Gemini:", error);
+                    geminiResult.innerHTML = `<p class="text-red-500">Ocorreu um erro ao tentar gerar o conteúdo. Por favor, verifique o console para mais detalhes e tente novamente mais tarde.</p>`;
+                    resultContainer.classList.remove('hidden');
+                } finally {
+                    generateButton.disabled = false;
+                    buttonText.textContent = '✨ Gerar Esboço com IA';
+                    loadingSpinner.classList.add('hidden');
+                }
             });
         });
     </script>
